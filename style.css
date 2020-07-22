@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main: 'Lobster', cursive;
+  --secd: 'Raleway', sans-serif;
+  --alt: 'Righteous', cursive;
+}
+
+  body {
+  transition: all 1.3s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.head {
+  transition: all 0.5s;
+}
+
+.head h1 {
+  text-align: center;
+  margin: 1.5rem 0 1rem 0;
+  font-size: 2.5rem;
+  font-family: var(--main);
+}
+
+.head p {
+  font-size: 1.5rem;
+  font-family: var(--secd);
+  text-align: center;
+}
+
+.head .white {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 2rem auto;
+  position: relative;
+  display: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.white.grow::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: grow 1s ease infinite;
+}
+
+.white.blank::after {
+  content: "";
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: blank ease 1.3s;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+
+.tabs > div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  animation-name: float;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  position: relative;
+  box-shadow: 0 0 15px 10px #fff;
+}
+
+/* .active {
+  box-shadow: 0 0 15px 10px #fff;
+} */
+
+.tab-1 {
+  background-color: #c4fb6d;
+}
+.tab-1.expand::after {
+  content: "";
+  background-color: #c4fb6d;
+}
+
+.tab-2 {
+  background-color: #ffa931;
+  animation-delay: 5s;
+}
+.tab-2.expand::after {
+  content: "";
+  background-color: #ffa931;
+}
+
+.tab-3 {
+  background-color: #12cad6;
+  animation-delay: 1s;
+}
+.tab-3.expand::after {
+  content: "";
+  background-color: #12cad6;
+}
+
+.tab-4 {
+  background-color: #e84a5f;
+  animation-delay: 4s;
+}
+.tab-4.expand::after {
+  content: "";
+  background-color: #e84a5f;
+}
+
+.tab-5 {
+  background-color: #d92027;
+  animation-delay: 2s;
+}
+.tab-5.expand::after {
+  content: "";
+  background-color: #d92027;
+}
+
+.tab-6 {
+  background-color: #6a097d;
+  animation-delay: 3s;
+}
+.tab-6.expand::after {
+  content: "";
+  background-color: #6a097d;
+}
+
+/* ----- */
+
+.tab-1.expand::after, .tab-2.expand::after, .tab-3.expand::after, .tab-4.expand::after, .tab-5.expand::after, .tab-6.expand::after {
+  content: "";
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: expand ease 1s;
+  pointer-events: none;
+}
+
+/* ----- */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 100px;
+    height: 100px;
+  }
+  50% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 0;
+    width: 1500px;
+    height: 1500px;
+  }
+}
+
+@keyframes blank {
+  0% {
+    width: 10px;
+    height: 10px;
+  }
+  50% {
+    opacity: .9;
+  }
+  100% {
+    width: 2500px;
+    height: 2500px;
+    opacity: 0;
+  }
+}
+
+@keyframes grow {
+  0% {
+    width: 15px;
+    height: 15px;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    width: 45px;
+    height: 45px;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .tabs {
+    flex-flow: row wrap;
+  }
+  .tabs > div {
+    margin: 15px 15px 0 15px;
+  }
+}
