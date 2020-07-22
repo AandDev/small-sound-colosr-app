@@ -190,8 +190,8 @@
 
 @keyframes expand {
   0% {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
   50% {
     opacity: .7;
@@ -239,5 +239,12 @@
   }
   .tabs > div {
     margin: 15px 15px 0 15px;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .tabs > div {
+    width: 80px;
+    height: 80px;
   }
 }
